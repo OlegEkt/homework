@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import day
+from .views import programmers_day
 
 urlpatterns = [
 
-    path('', day, name='day')
+    path('', programmers_day, name='day')
 
 ]
