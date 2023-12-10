@@ -1,0 +1,12 @@
+{% extends 'app_auto/base.html' %}
+
+{% block auto_detail %}
+
+<h1>Auto Details</h1>
+    <h2>Title: {{ auto_title }}</h2>
+    <p>Model: {{ auto_info.model }}</p>
+    <p>Type gear: {{ auto_info.gear }}</p>
+    <p>Type fuel: {{ auto_info.fuel }}</p>
+    <p>Year: {{ auto_info.year }}</p>
+
+ {% endblock %}
