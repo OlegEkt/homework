@@ -1,0 +1,17 @@
+
+{% extends 'my_auth/base.html' %}
+
+
+
+{% block main %}
+   <div class="container">
+      <h2>Create record</h2>
+       <form method="post" enctype="multipart/form-data">
+           {% csrf_token %}
+           {{record_form.as_p}}
+           {{image_form.as_p}}
+           <button type="submite" class ="btn btn-primary">Create</button>
+       </form>
+   <p>{{error}}</p>
+   </div>
+{% endblock %}

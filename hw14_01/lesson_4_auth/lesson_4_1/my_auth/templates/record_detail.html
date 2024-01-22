@@ -1,0 +1,19 @@
+{% extends 'my_auth/base.html' %}
+
+
+{% block main %}
+    <div class="container">
+        <h2>{{ record.title }}</h2>
+        {% for i_img in record.images.all %}
+            <div>
+                <img src="{{i_img.image.url}}" width="500px" height="300px">
+            </div>
+        {% endfor %}
+
+        <p>{{ record.description }}</p>
+        <div class="d-flex">
+            <span class="me-2">Автор: {{record.user.user.email}}</span>
+            <span>Опубликовано: {{record.created_at}}</span>
+        </div>
+    </div>
+{% endblock %}
