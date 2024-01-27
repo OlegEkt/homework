@@ -1,0 +1,20 @@
+{% extends 'app_blog/base.html' %}
+
+{% block news_list %}
+
+   {% for i_news in news %}
+    <a href="{% url 'news-detail' i_news.id %}">
+      <div class="news">
+          <h2>{{i_news.title}}</h2>
+          <span>Опубликовано: {{i_news.published_at|date:"SHORT_DATE_FORMAT"}} {{i_news.published_at|time:"H:i"}}</span>
+          <br>
+          <span>Изменено: {{i_news.update_at|date:"SHORT_DATE_FORMAT"}} {{i_news.updated_at|time:"H:i"}}</span>
+          <p>{{i_news.content|truncatewords:20}}</p>
+      </div>
+    </a>
+
+   {% empty %}
+   <h3>Новостей пока нет...</h3>
+   {% endfor %}
+
+{% endblock %}
