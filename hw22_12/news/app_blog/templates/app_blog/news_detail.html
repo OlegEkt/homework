@@ -1,0 +1,38 @@
+{% extends 'app_blog/base.html' %}
+
+{% block news_list %}
+
+{% block content %}
+
+    <span>{{news.author.username}} {{news.published_at}}</span>
+    <h3>Автор: {{news.author.first_name}} {{news.author.last_name}}</h3>
+    <h4>Оставьте обратную связь автору:
+        <a href="mailto:{{news.author.email}}">{{news.author.email}},</a>
+    </h4>
+    <h2>{{news.title}}</h2>
+    <p>{{news.content}}</p>
+
+
+
+  <!-- Форма для добавления комментария -->
+  <h3>Добавить комментарий:</h3>
+ <form method="POST" action="{% url 'news-detail' pk=news.pk %}">
+    {% csrf_token %}
+    {{comment_form.as_p}}
+    <button type="submit">Отправить</button>
+ </form>
+    <h3>Комментарии:</h3>
+    {% if news.comments.all %}
+        {% for comment in news.comments.all %}
+            <p>{{ comment.comment }} - {{ comment.username }} ({{ comment.published_at|date:"SHORT_DATE_FORMAT" }})</p>
+        {% endfor %}
+    {% else %}
+        <p>Нет комментариев.</p>
+    {% endif %}
+
+
+{% endblock %}
+
+{% endblock %}
+
+
