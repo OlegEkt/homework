@@ -1,0 +1,20 @@
+{% extends 'app_blog/base.html' %}
+
+{% block news_list %}
+
+{% block content %}
+
+    <span>{{news.author.username}} {{news.published_at}}</span>
+    <h3>Автор: {{news.author.first_name}} {{news.author.last_name}}</h3>
+    <h4>Оставьте обратную связь автору:
+        <a href="mailto:{{news.author.email}}">{{news.author.email}},</a>
+    </h4>
+    <h2>{{news.title}}</h2>
+    <p>{{news.content}}</p>
+
+
+{% endblock %}
+
+{% endblock %}
+
+
